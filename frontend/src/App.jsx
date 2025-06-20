@@ -1,6 +1,6 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Head, Header, IndexMain, Gallery, Settings } from './Components'
-import './style.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Head, Header, IndexMain, Gallery, Settings } from "./Components";
+import "./style.css";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         </div>
       </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
