@@ -35,53 +35,57 @@ function IndexMain() {
 }
 
 function Gallery() {
-    return (<div id="galleryGrid">
-        <div class="galleryItem">
-            <img src="../public/images/icons8-gallery-96.png" alt="Gallery Icon" />
-        </div>
-        <div class="galleryItem">
-            <img src="../public/images/icons8-home-96.png" alt="Home Icon" />
-        </div>
-        <div class="galleryItem">
-            <img src="../public/images/icons8-settings-96.png" alt="Settings Icon" />
-        </div>
-        <div class="galleryItem">
-            <img src="../public/images/icons8-gallery-96.png" alt="Gallery Icon" />
-        </div>
-        <div class="galleryItem">
-            <img src="../public/images/icons8-home-96.png" alt="Home Icon" />
-        </div>
-        <div class="galleryItem">
-            <img src="../public/images/icons8-settings-96.png" alt="Settings Icon" />
-        </div>
-        <div class="galleryItem">
-            <img src="../public/images/icons8-gallery-96.png" alt="Gallery Icon" />
-        </div>
-        <div class="galleryItem">
-            <img src="../public/images/icons8-home-96.png" alt="Home Icon" />
-        </div>
-        <div class="galleryItem">
-            <img src="../public/images/icons8-settings-96.png" alt="Settings Icon" />
+    return (<div id="main">
+        <div id="galleryGrid">
+            <div class="galleryItem">
+                <img src="../public/images/icons8-gallery-96.png" alt="Gallery Icon" />
+            </div>
+            <div class="galleryItem">
+                <img src="../public/images/icons8-home-96.png" alt="Home Icon" />
+            </div>
+            <div class="galleryItem">
+                <img src="../public/images/icons8-settings-96.png" alt="Settings Icon" />
+            </div>
+            <div class="galleryItem">
+                <img src="../public/images/icons8-gallery-96.png" alt="Gallery Icon" />
+            </div>
+            <div class="galleryItem">
+                <img src="../public/images/icons8-home-96.png" alt="Home Icon" />
+            </div>
+            <div class="galleryItem">
+                <img src="../public/images/icons8-settings-96.png" alt="Settings Icon" />
+            </div>
+            <div class="galleryItem">
+                <img src="../public/images/icons8-gallery-96.png" alt="Gallery Icon" />
+            </div>
+            <div class="galleryItem">
+                <img src="../public/images/icons8-home-96.png" alt="Home Icon" />
+            </div>
+            <div class="galleryItem">
+                <img src="../public/images/icons8-settings-96.png" alt="Settings Icon" />
+            </div>
         </div>
     </div>)
 }
 
 function Settings() {
-    return (<form id="settingSelect" action="#">
-        <div id="slideSpeedContainer">
-            <label for="slideSpeed">Slideshow Speed</label>
-            <select name="slideSpeed" id="slideSpeed">
-                <option value="2">2</option>
-                <option value="5">5</option>
-                <option value="8">8</option>
-            </select>
-        </div>
-        <div id="showMetaContainer">
-            <label for="showMeta">Show Data</label>
-            <input type="radio" id="showMeta" name="showMeta" />
-        </div>
-        <input type="submit" value="Submit" />
-    </form>)
+    return (<div id="main">
+        <form id="settingSelect" action="#">
+            <div id="slideSpeedContainer">
+                <label for="slideSpeed">Slideshow Speed</label>
+                <select name="slideSpeed" id="slideSpeed">
+                    <option value="2">2</option>
+                    <option value="5">5</option>
+                    <option value="8">8</option>
+                </select>
+            </div>
+            <div id="showMetaContainer">
+                <label for="showMeta">Show Data</label>
+                <input type="radio" id="showMeta" name="showMeta" />
+            </div>
+            <input type="submit" value="Submit" />
+        </form>
+    </div>)
 }
 
 export {Head, Header, IndexMain, Gallery, Settings};
