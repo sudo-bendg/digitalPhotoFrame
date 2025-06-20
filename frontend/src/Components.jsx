@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 import './style.css'
 
 function Head({ title }) {
@@ -12,9 +13,9 @@ function Head({ title }) {
 
 function Header() {
     return (<div id="header">
-        <a id="headerLeftLink" href="./gallery.html"><img id="headerLeftImage" src="/images/icons8-gallery-96.png" /></a>
+        <Link id="headerLeftLink" to="/gallery"><img id="headerLeftImage" src="/images/icons8-gallery-96.png" /></Link>
         <h1 id="headerText">PhotoFrame</h1>
-        <a id="headerRightLink" href="./settings.html"><img id="headerRightImage" src="/images/icons8-settings-96.png" /></a>
+        <Link id="headerRightLink" to="/settings"><img id="headerRightImage" src="/images/icons8-settings-96.png" /></Link>
     </div>)
 }
 
@@ -30,4 +31,54 @@ function IndexMain() {
     </div>)
 }
 
-export {Head, Header, IndexMain};
+function Gallery() {
+    return (<div id="galleryGrid">
+        <div class="galleryItem">
+            <img src="../public/images/icons8-gallery-96.png" alt="Gallery Icon" />
+        </div>
+        <div class="galleryItem">
+            <img src="../public/images/icons8-home-96.png" alt="Home Icon" />
+        </div>
+        <div class="galleryItem">
+            <img src="../public/images/icons8-settings-96.png" alt="Settings Icon" />
+        </div>
+        <div class="galleryItem">
+            <img src="../public/images/icons8-gallery-96.png" alt="Gallery Icon" />
+        </div>
+        <div class="galleryItem">
+            <img src="../public/images/icons8-home-96.png" alt="Home Icon" />
+        </div>
+        <div class="galleryItem">
+            <img src="../public/images/icons8-settings-96.png" alt="Settings Icon" />
+        </div>
+        <div class="galleryItem">
+            <img src="../public/images/icons8-gallery-96.png" alt="Gallery Icon" />
+        </div>
+        <div class="galleryItem">
+            <img src="../public/images/icons8-home-96.png" alt="Home Icon" />
+        </div>
+        <div class="galleryItem">
+            <img src="../public/images/icons8-settings-96.png" alt="Settings Icon" />
+        </div>
+    </div>)
+}
+
+function Settings() {
+    return (<form id="settingSelect" action="#">
+        <div id="slideSpeedContainer">
+            <label for="slideSpeed">Slideshow Speed</label>
+            <select name="slideSpeed" id="slideSpeed">
+                <option value="2">2</option>
+                <option value="5">5</option>
+                <option value="8">8</option>
+            </select>
+        </div>
+        <div id="showMetaContainer">
+            <label for="showMeta">Show Data</label>
+            <input type="radio" id="showMeta" name="showMeta" />
+        </div>
+        <input type="submit" value="Submit" />
+    </form>)
+}
+
+export {Head, Header, IndexMain, Gallery, Settings};
