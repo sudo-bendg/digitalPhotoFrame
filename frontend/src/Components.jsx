@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import "./style.css";
+import { useState } from "react";
+import { useEffect } from "react";
 
 function Head({ title }) {
   return (
@@ -49,55 +51,41 @@ function IndexMain() {
   );
 }
 
+function Image({src, alt}) {
+  return (
+    <div className="galleryItem">
+      <img src={src} alt={alt} />
+    </div>
+  )
+}
+
 function Gallery() {
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/uploads", {mode: 'cors'})
+      .then((res) => res.json())
+      .then((files) => setImages(files))
+      .catch((err) => {
+        console.error("Failed to fetch images:", err);
+        setImages([]); // fallback to empty array on error
+      });
+  }, []);
+
   return (
     <div id="main">
       <div id="galleryGrid">
-        <div class="galleryItem">
-          <img
-            src="../public/images/icons8-gallery-96.png"
-            alt="Gallery Icon"
-          />
-        </div>
-        <div class="galleryItem">
-          <img src="../public/images/icons8-home-96.png" alt="Home Icon" />
-        </div>
-        <div class="galleryItem">
-          <img
-            src="../public/images/icons8-settings-96.png"
-            alt="Settings Icon"
-          />
-        </div>
-        <div class="galleryItem">
-          <img
-            src="../public/images/icons8-gallery-96.png"
-            alt="Gallery Icon"
-          />
-        </div>
-        <div class="galleryItem">
-          <img src="../public/images/icons8-home-96.png" alt="Home Icon" />
-        </div>
-        <div class="galleryItem">
-          <img
-            src="../public/images/icons8-settings-96.png"
-            alt="Settings Icon"
-          />
-        </div>
-        <div class="galleryItem">
-          <img
-            src="../public/images/icons8-gallery-96.png"
-            alt="Gallery Icon"
-          />
-        </div>
-        <div class="galleryItem">
-          <img src="../public/images/icons8-home-96.png" alt="Home Icon" />
-        </div>
-        <div class="galleryItem">
-          <img
-            src="../public/images/icons8-settings-96.png"
-            alt="Settings Icon"
-          />
-        </div>
+        {images.length === 0 ? (
+          <p>No images uploaded yet.</p>
+        ) : (
+          images.map((filename, idx) => (
+            <Image
+              key={idx}
+              src={`http://localhost:3000/uploads/${filename}`}
+              alt={filename}
+            />
+          ))
+        )}
       </div>
     </div>
   );

@@ -26,11 +26,27 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage});
 
+app.use('/uploads', express.static('uploads'));
+
+// Routes
 app.post('/upload', upload.single('image'), (req, res) => {
   if (!req.file) return res.status(400).send('No file uploaded.');
   res.status(200).json({
     message: 'File uploaded successfully.',
     filename: req.file.filename,
+  });
+});
+
+
+app.get('/uploads', (req, res) => {
+  const uploadDir = path.join(__dirname, 'uploads');
+  fs.readdir(uploadDir, (err, files) => {
+    if (err) return res.status(500).json({ error: 'Failed to list uploads' });
+
+    // Optionally filter only images if you want
+    const imageFiles = files.filter(file => file.match(/\.(jpg|jpeg|png)$/i));
+
+    res.json(imageFiles);
   });
 });
 
