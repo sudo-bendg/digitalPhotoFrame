@@ -3,14 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Settings</title>
     <link rel="stylesheet" href="../public/style/style.css">
 </head>
 <body>
-    <div id="header">
-        <a href="./gallery.html"><img src="../public/images/icons8-gallery-96.png"></a>
-        <h1>Settings</h1>
-        <a href="./index.html"><img src="../public/images/icons8-home-96.png"></a>
+    <div id="container">
+        <div id="header">
+            <a href="./gallery.html"><img src="../public/images/icons8-gallery-96.png"></a>
+            <h1>Settings</h1>
+            <a href="./index.html"><img src="../public/images/icons8-home-96.png"></a>
+        </div>
+        <div id="main">
+            <form id="settingSelect" action="#">
+                <div id="slideSpeedContainer">
+                    <label for="slideSpeed">Slideshow Speed</label>
+                    <select name="slideSpeed" id="slideSpeed">
+                        <option value="2">2</option>
+                        <option value="5">5</option>
+                        <option value="8">8</option>
+                    </select>
+                </div>
+                <div id="showMetaContainer">
+                    <label for="showMeta">Show Data</label>
+                    <input type="radio" id="showMeta" name="showMeta">
+                </div>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
     </div>
 </body>
 </html>
