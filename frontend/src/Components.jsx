@@ -33,7 +33,7 @@ function Header() {
 function IndexMain() {
   return (
     <div id="main">
-      <form id="imageSelect" action="#">
+      <form id="imageSelect" action="http://localhost:3000/upload" method="POST" encType="multipart/form-data" target="_blank">
         <label for="image">Select an image:</label>
         <div>
           <input
