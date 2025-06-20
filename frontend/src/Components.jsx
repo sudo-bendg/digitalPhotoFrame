@@ -13,9 +13,12 @@ function Head({ title }) {
 
 function Header() {
     return (<div id="header">
-        <Link id="headerLeftLink" to="/gallery"><img id="headerLeftImage" src="/images/icons8-gallery-96.png" /></Link>
         <h1 id="headerText">PhotoFrame</h1>
-        <Link id="headerRightLink" to="/settings"><img id="headerRightImage" src="/images/icons8-settings-96.png" /></Link>
+        <span id="links">
+            <Link id="uploadLink" to="/"><img src="/images/icons8-upload-96.png" /></Link>
+            <Link id="galleryLink" to="/gallery"><img src="/images/icons8-gallery-96.png" /></Link>
+            <Link id="settingsLink" to="/settings"><img src="/images/icons8-settings-96.png" /></Link>
+        </span>
     </div>)
 }
 
