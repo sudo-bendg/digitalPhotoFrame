@@ -3,13 +3,16 @@ const multer = require('multer');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
+const {FRONTEND_URL, BACKEND_URL} = require('./config');
 
 const app = express();
 const PORT = 3000;
 
 // Enable cors on frontent
 app.use(cors({
-    origin: 'http://localhost:5173'
+    origin: ['http://localhost:5173',
+        FRONTEND_URL
+    ]
 }));
 
 // Create uploads folder
@@ -30,6 +33,7 @@ app.use('/uploads', express.static('uploads'));
 
 // Routes
 app.post('/upload', upload.single('image'), (req, res) => {
+  console.log("uploading!");
   if (!req.file) return res.status(400).send('No file uploaded.');
   res.status(200).json({
     message: 'File uploaded successfully.',
@@ -51,5 +55,5 @@ app.get('/uploads', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running at http://<YOUR-BACKEND-IP>:${PORT}`);
+  console.log(`Server running at http://${BACKEND_URL}`);
 });

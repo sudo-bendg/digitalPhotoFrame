@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./style.css";
 import { useState } from "react";
 import { useEffect } from "react";
+import { BACKEND_URL } from "./config";
 
 function Head({ title }) {
   return (
@@ -35,7 +36,7 @@ function Header() {
 function IndexMain() {
   return (
     <div id="main">
-      <form id="imageSelect" action="http://localhost:3000/upload" method="POST" encType="multipart/form-data" target="_blank">
+      <form id="imageSelect" action={BACKEND_URL + "/upload"} method="POST" encType="multipart/form-data" target="_blank">
         <label for="image">Select an image:</label>
         <div>
           <input
@@ -63,7 +64,7 @@ function Gallery() {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/uploads", {mode: 'cors'})
+    fetch(BACKEND_URL + "/uploads", {mode: 'cors'})
       .then((res) => res.json())
       .then((files) => setImages(files))
       .catch((err) => {
@@ -81,7 +82,7 @@ function Gallery() {
           images.map((filename, idx) => (
             <Image
               key={idx}
-              src={`http://localhost:3000/uploads/${filename}`}
+              src={`${BACKEND_URL}/uploads/${filename}`}
               alt={filename}
             />
           ))

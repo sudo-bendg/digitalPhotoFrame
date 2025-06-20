@@ -206,3 +206,5 @@ sketch
 # End of https://www.toptal.com/developers/gitignore/api/react,node,visualstudiocode,linux,git
 
 backend/uploads/
+backend/config.js
+frontend/src/config.js
